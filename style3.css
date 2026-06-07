@@ -1,99 +1,165 @@
-body{
-  background:#FFF8FA;
-  font-family:Poppins,sans-serif;
-  color:#2D3748;
-}
-.container{
-  width:90%;
-  margin:auto;
-}
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:20px 0;
-}
-.balance-card{
-  background:white;
-
-  padding:30px;
-
-  border-radius:24px;
-
-  margin-top:20px;
-
-  box-shadow:
-  0 8px 25px rgba(0,0,0,.08);
-}
-.summary-cards{
-  display:grid;
-
-  grid-template-columns:
-  repeat(3,1fr);
-
-  gap:20px;
-
-  margin-top:20px;
-}
-.card{
-  background:white;
-
-  padding:20px;
-
-  border-radius:20px;
-
-  box-shadow:
-  0 8px 25px rgba(0,0,0,.08);
-}
-.add-expense{
-  margin-top:30px;
-
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-input,
-select{
-  padding:12px;
-
-  border-radius:12px;
-
-  border:1px solid #ddd;
-}
-
-button{
-  background:#FF6B9A;
-
-  color:white;
-
-  border:none;
-
-  padding:12px 20px;
-
-  border-radius:12px;
-
-  cursor:pointer;
-}
-
-
-#expense-list {
-    list-style: none;
+* {
+    margin: 0;
     padding: 0;
-    margin-top: 15px;
+    box-sizing: border-box;
 }
 
+body {
+  background: #FFF8FA;
+  font-family: 'Poppins', sans-serif;
+  color: #2D3748;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px; /* Limits container width on desktop screens so it stays cozy */
+  margin: 30px auto;
+}
+
+.greeting {
+    margin-bottom: 20px;
+}
+
+.balance-card {
+  background: white;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  text-align: center;
+}
+
+.balance-card h3 {
+    font-size: 1rem;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.balance-card h1 {
+    font-size: 2.5rem;
+    color: #2D3748;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 side-by-side blocks */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Colors specifically matching financial statuses */
+#income { color: #2ecc71; }
+#expense { color: #e74c3c; }
+#budget { color: #3498db; }
+
+/* ADD EXPENSE SECTION */
+.add-expense {
+  background: white;
+  padding: 25px;
+  border-radius: 24px;
+  margin-top: 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column; /* Stacked layout elements inside card */
+  gap: 15px;
+}
+
+.add-expense h2 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  font-size: 1rem;
+  background: #F8FAFC;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #FF6B9A;
+    background: white;
+}
+
+button#addBtn {
+  background: #FF6B9A;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button#addBtn:hover {
+    background: #E04D7D;
+}
+
+/* TRANSACTIONS CONTAINER */
+.transactions {
+    background: white;
+    padding: 25px;
+    border-radius: 24px;
+    margin-top: 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.transactions h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
 
 #expense-list li {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
+    padding: 15px 5px;
+    border-bottom: 1px solid #F1F5F9;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+#expense-list li:last-child {
+    border-bottom: none;
+}
+
 .expense-amount {
     color: #e74c3c;
     font-weight: 600;
+}
+
+/* RESPONSIVE LAYOUT BREAKPOINTS */
+@media (max-width: 600px) {
+    /* Stack the summary cards vertically instead of maintaining 3 narrow columns */
+    .summary-cards {
+        grid-template-columns: 1fr; 
+        gap: 12px;
+    }
+    
+    .balance-card h1 {
+        font-size: 2rem;
+    }
 }

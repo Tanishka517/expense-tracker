@@ -109,25 +109,51 @@ addBtn.addEventListener('click', function() {
 );
 
 // reset button
+// reset button
 resetBtn.addEventListener('click', function() {
 
     let confirmReset = confirm("Are you sure you want to reset?");
 
     if (confirmReset == true) {
         
-        
+        // --- 1. CALCULATE BUDGET LEFT (SAVINGS) ACCURATELY ---
+        // Since budgetleft was inside updateDashboard, we recalculate it here safely
+        let totalSpent = 0;
+        expenseList.forEach(function(item) {
+            totalSpent += item.amountInput;
+        });
+        let budgetleft = income - totalSpent; 
+
+        // --- 2. PROMPT FOR MONTH NAME ---
+        let newMonth = prompt("Enter month name (e.g., January, February):") || "Unknown Month";
+
+        // --- 3. SAVE AS A LIST, NOT A SINGLE OVERWRITING VALUE ---
+        // Grab the existing history array from localStorage, or create a empty array [] if it's the first time
+        let savingsHistory = JSON.parse(localStorage.getItem("penny_savings_history")) || [];
+
+        // Create a data package for this month
+        let monthSnapshot = {
+            month: newMonth,
+            savingsValue: budgetleft
+        };
+
+        // Add the new month package to our ongoing history list
+        savingsHistory.push(monthSnapshot);
+
+        // Save the updated list back to localStorage
+        localStorage.setItem("penny_savings_history", JSON.stringify(savingsHistory));
+
+        // --- 4. WIPE CURRENT MONTH FOR FRESH START ---
         localStorage.removeItem("penny_income");
         localStorage.removeItem("penny_expenses");
         
-        
         let newIncome = Number(prompt("Enter your income.")) || 0;
         localStorage.setItem("penny_income", newIncome);
-
        
         expenseList = [];
         income = newIncome;
         
-        
+        // Reload the page to refresh everything cleanly
         window.location.reload();
     }
 });

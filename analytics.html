@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyPal Analytics</title>
+  <link rel="stylesheet" href="style4.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <main class="container">
+    <section class="navigation-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+      <h1>Financial Insights 📊</h1>
+      <a href="expense.html" class="nav-link" style="text-decoration: none; color: #FF6B9A; font-weight: 600;">← Back to Dashboard</a>
+    </section>
+
+    <section class="analytics-section">
+      
+      <div class="analytics-card">
+        <h3>Where Your Money Goes</h3>
+        <div style="position: relative; max-width: 320px; margin: 0 auto;">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <div class="analytics-card">
+        <h3>Monthly Spending History</h3>
+        <div>
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="analytics.js"></script>
+</body>
+</html>

@@ -1,80 +1,88 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    height:100vh;
-
-    font-family:'Poppins', sans-serif;
-
-    background-image:url("financebg.jpg");
-    background-size:cover;
-    background-position:center;
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("financebg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.overlay{
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(0,0,0,0.35);
+.overlay {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.45); /* Marginally darker overlay for better input contrast */
+    padding: 20px;
 }
 
-.right-section{
-    width:450px;
-
-    margin-right:80px;
-
-    color:white;
+.right-section {
+    width: 100%;
+    max-width: 450px; /* Keeps it tight on desktop, fluid on mobile */
+    color: white;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass panel style */
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-.right-section h1{
-    font-size:3.5rem;
-    margin-bottom:10px;
+.right-section h1 {
+    font-size: 2.5rem; /* Marginally scaled down from 3.5rem to prevent small-screen breakages */
+    margin-bottom: 10px;
 }
 
-.right-section p{
-    font-size:1.1rem;
-    margin-bottom:35px;
+.right-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #E2E8F0;
 }
 
-.right-section label{
-    display:block;
-    margin-bottom:10px;
+.right-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
-.right-section input{
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-    border-radius:10px;
-
-    margin-bottom:20px;
+.right-section input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background: white;
+    color: #2D3748;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
 }
 
-.right-section button{
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-    border-radius:10px;
-
-    background:#FF6B9A;
-    color:white;
-
-    font-size:16px;
-    font-weight:600;
-
-    cursor:pointer;
+.right-section input:focus {
+    border-color: #FF6B9A;
+    box-shadow: 0 0 0 3px rgba(255, 107, 154, 0.3);
 }
 
-.right-section button:hover{
-    background:#E75480;
+.right-section button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #FF6B9A;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.right-section button:hover {
+    background: #E04D7D;
 }
